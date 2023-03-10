@@ -1,0 +1,29 @@
+notes on runtime between insert and append function:
+Append is 236x faster
+
+Results for tinyArray
+insert 958.97551 ms
+append 150.95 μs
+----------------------------------------------------
+Results for smallArray
+insert 948.821935 ms
+append 15.256 μs
+----------------------------------------------------
+Results for mediumArray
+insert 960.201987 ms
+append 45.092 μs
+----------------------------------------------------
+Results for largeArray
+insert 941.251752 ms
+append 449.269 μs
+----------------------------------------------------
+Results for extraLargeArray
+insert 955.333617 ms
+append 3.717187 ms
+----------------------------------------------------
+
+Looking at the results, it seems that there is a linear "O(n)" relationship between the time it takes
+for the "append" function to execute and the size of array passed in. However, the difference between the 
+efficiency of the "append" function is orders of magnitude more effective than the "insert" function.
+This is because "Unshift" requires that every element in the array is "shifted" over a position,
+whereas "push" adds the new element to the back of the array.
